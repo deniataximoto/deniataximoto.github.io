@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Denia Taxi Moto Paris · Aéroports, affaires et balades en Goldwing</title>
+<meta name="description" content="Denia, taxi moto à Paris en Honda Goldwing. Orly, Roissy, Le Bourget, La Défense, presse, avocats, balades privées. Disponible 24 h/24 et 7 j/7 sur réservation. Simulez votre prix et réservez sur WhatsApp au +33 6 68 24 43 43.">
+<meta property="og:title" content="Denia Taxi Moto Paris">
+<meta property="og:description" content="Aéroports, rendez-vous d'affaires et balades privées en Honda Goldwing. Simulez votre prix en direct.">
+<meta property="og:image" content="assets/denia-visuel-large.jpg">
+<meta name="theme-color" content="#0e0a10">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="backdrop" aria-hidden="true"></div>
+
+<div class="progress" aria-hidden="true"><span id="progress"></span></div>
+
+<header class="top" id="top">
+  <a class="top-name" href="#haut">Denia Taxi Moto</a>
+  <nav class="top-nav" aria-label="Navigation principale">
+    <a href="#prix">Simulateur</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#balades">Balades</a>
+    <a href="#pour-qui">Presse et pros</a>
+    <a href="#questions">Questions</a>
+  </nav>
+  <a class="btn btn-small" href="https://wa.me/33668244343?text=Bonjour%20Denia%2C%20je%20souhaite%20r%C3%A9server%20une%20course." data-wa>Réserver</a>
+</header>
+
+<section class="hero" id="haut">
+  <div class="hero-in">
+    <div class="hero-text">
+      <h1 class="monument"><span>Denia</span> <span>Taxi Moto</span></h1>
+      <p class="hero-say">Paris à moto, à l'heure. Indiquez votre trajet : votre tarif s'affiche tout de suite.</p>
+
+      <form class="trip" id="trip" onsubmit="return false">
+        <div class="trip-places">
+          <div class="trip-field">
+            <label for="from">Départ</label>
+            <input id="from" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="from-list" autocomplete="off" placeholder="Adresse, gare ou aéroport">
+            <ul id="from-list" class="sug" role="listbox" hidden></ul>
+          </div>
+          <button type="button" class="trip-swap" id="swap" aria-label="Inverser le départ et l'arrivée"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v13.200l-2.600-2.600L3 16l5 5 5-5-1.400-1.400L9 17.200V4H7zm9-1l-5 5 1.400 1.400L15 6.800V20h2V6.800l2.600 2.600L21 8l-5-5z"/></svg></button>
+          <div class="trip-field">
+            <label for="to">Arrivée</label>
+            <input id="to" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="to-list" autocomplete="off" placeholder="Adresse, gare ou aéroport">
+            <ul id="to-list" class="sug" role="listbox" hidden></ul>
+          </div>
+        </div>
+        <div class="trip-when">
+          <div class="trip-field"><input id="t-jour" type="date" aria-label="Date de la course"></div>
+          <div class="trip-field"><input id="t-heure" type="time" step="300" aria-label="Heure de prise en charge"></div>
+        </div>
+        <div class="trip-steps" id="trip-steps" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="trip-res" aria-live="polite">
+          <p class="trip-price" id="trip-price">Dès 55 €</p>
+          <p class="trip-line" id="trip-line">Indiquez le départ et l'arrivée : votre tarif s'affiche ici, tout de suite.</p>
+        </div>
+        <div class="trip-slots" id="trip-slots" hidden></div>
+        <a class="btn btn-big" id="trip-wa" href="https://wa.me/33668244343" data-wa hidden>Réserver à ce prix</a>
+        <a class="trip-more" id="trip-more" href="#prix">Ajouter de l'attente ou régler chaque détail</a>
+      </form>
+    </div>
+    <figure class="hero-photo">
+      <img src="assets/denia-visuel-portrait.jpg" width="612" height="896" alt="Illustration : Denia de dos, blouson à son nom, à côté de sa Honda Goldwing noire, face à Paris au coucher du soleil">
+      <p class="hp-live" aria-live="off"><i></i><span id="hp-route">Paris – Orly</span><b id="hp-price">80 €</b></p>
+      <ul class="hp-bar">
+        <li><b>24 h/24</b><span>7 jours sur 7</span></li>
+        <li><b>10 min</b><span>d'attente offertes</span></li>
+        <li><b>Prix fixé</b><span>avant le départ</span></li>
+      </ul>
+    </figure>
+  </div>
+</section>
+
+<div class="brands" id="references">
+  <p class="brands-say">Ils ont déjà fait appel à Denia</p>
+  <div class="ticker ticker-gold" aria-label="Références : PSG, Dior, Aéroport Paris-Charles de Gaulle, Air France, Accor Arena">
+    <div class="ticker-track">
+      <ul><li><img class="lg lg-psg" src="assets/logos/psg.svg" width="64" height="64" alt="Paris Saint-Germain"></li><li><img class="lg lg-dior" src="assets/logos/dior.svg" width="122" height="34" alt="Dior"></li><li><img class="lg lg-cdg" src="assets/logos/cdg.svg" width="93" height="62" alt="Paris Aéroport, Charles de Gaulle"></li><li><img class="lg lg-af" src="assets/logos/airfrance.svg" width="231" height="22" alt="Air France"></li><li><img class="lg lg-accor" src="assets/logos/accor.svg" width="229" height="24" alt="Accor Arena"></li><li><img class="lg lg-psg" src="assets/logos/psg.svg" width="64" height="64" alt=""></li><li><img class="lg lg-dior" src="assets/logos/dior.svg" width="122" height="34" alt=""></li><li><img class="lg lg-cdg" src="assets/logos/cdg.svg" width="93" height="62" alt=""></li><li><img class="lg lg-af" src="assets/logos/airfrance.svg" width="231" height="22" alt=""></li><li><img class="lg lg-accor" src="assets/logos/accor.svg" width="229" height="24" alt=""></li></ul>
+      <ul aria-hidden="true"><li><img class="lg lg-psg" src="assets/logos/psg.svg" width="64" height="64" alt=""></li><li><img class="lg lg-dior" src="assets/logos/dior.svg" width="122" height="34" alt=""></li><li><img class="lg lg-cdg" src="assets/logos/cdg.svg" width="93" height="62" alt=""></li><li><img class="lg lg-af" src="assets/logos/airfrance.svg" width="231" height="22" alt=""></li><li><img class="lg lg-accor" src="assets/logos/accor.svg" width="229" height="24" alt=""></li><li><img class="lg lg-psg" src="assets/logos/psg.svg" width="64" height="64" alt=""></li><li><img class="lg lg-dior" src="assets/logos/dior.svg" width="122" height="34" alt=""></li><li><img class="lg lg-cdg" src="assets/logos/cdg.svg" width="93" height="62" alt=""></li><li><img class="lg lg-af" src="assets/logos/airfrance.svg" width="231" height="22" alt=""></li><li><img class="lg lg-accor" src="assets/logos/accor.svg" width="229" height="24" alt=""></li></ul>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<section class="prix" id="prix">
+  <div class="sec-head">
+    <h2 class="rv">Réglez chaque détail</h2>
+    <p class="rv">Kilomètres, créneau, attente : bougez les curseurs, le prix suit en direct, d'après la grille de Denia.</p>
+  </div>
+
+  <div class="dash">
+    <form class="sim rv" id="sim" onsubmit="return false">
+      <div class="seg" role="radiogroup" aria-label="Type de course" id="mode">
+        <button type="button" role="radio" aria-checked="true" data-mode="forfait">Forfait</button>
+        <button type="button" role="radio" aria-checked="false" data-mode="km">Au kilomètre</button>
+        <button type="button" role="radio" aria-checked="false" data-mode="heure">À l'heure</button>
+      </div>
+
+      <div class="pane" id="pane-forfait">
+        <p class="lab" id="lab-trajet">Votre trajet</p>
+        <div class="chips" role="radiogroup" aria-labelledby="lab-trajet" id="routes"></div>
+      </div>
+
+      <div class="pane" id="pane-km" hidden>
+        <label class="lab" for="km">Distance <output id="km-out">25 km</output></label>
+        <div class="rng"><span class="rng-fill" id="km-fill"></span><input id="km" type="range" min="10" max="200" step="1" value="25"></div>
+        <p class="hint">Le Bourget, gares, salons, province : prise en charge plus 2,5 € par kilomètre, à partir de 10 km.</p>
+      </div>
+
+      <div class="pane" id="pane-heure" hidden>
+        <label class="lab" for="heures">Durée <output id="h-out">2 h</output></label>
+        <div class="rng"><span class="rng-fill" id="h-fill"></span><input id="heures" type="range" min="1" max="12" step="1" value="2"></div>
+        <p class="hint">Mise à disposition : Denia vous attend entre deux adresses, 90 € l'heure.</p>
+      </div>
+
+      <p class="lab" id="lab-slot">Créneau</p>
+      <div class="seg seg-3" role="radiogroup" aria-labelledby="lab-slot" id="slot">
+        <button type="button" role="radio" aria-checked="true" data-slot="0">Jour<small>8 h à 20 h</small></button>
+        <button type="button" role="radio" aria-checked="false" data-slot="1">Nuit<small>20 h à 8 h</small></button>
+        <button type="button" role="radio" aria-checked="false" data-slot="2">Week-end<small>dès ven. 20 h</small></button>
+      </div>
+
+      <div class="sim-two">
+        <div>
+          <label class="lab" for="jour">Date</label>
+          <input id="jour" name="jour" type="date">
+        </div>
+        <div>
+          <label class="lab" for="heure">Heure</label>
+          <input id="heure" name="heure" type="time" step="300">
+        </div>
+      </div>
+
+      <label class="lab" for="attente">Attente prévue <output id="att-out">0 min</output></label>
+      <div class="rng"><span class="rng-fill" id="att-fill"></span><input id="attente" type="range" min="0" max="60" step="5" value="0"></div>
+
+      <label class="switch">
+        <input type="checkbox" id="last">
+        <span class="switch-ui" aria-hidden="true"></span>
+        <span>Départ dans moins de 2 h</span>
+      </label>
+    </form>
+
+    <div class="res rv" aria-live="polite">
+      <div class="gauge">
+        <svg viewBox="0 0 320 206" role="img" aria-label="Jauge du prix">
+          <path class="g-bg" d="M30 170 A130 130 0 0 1 290 170" pathLength="100"/>
+          <path class="g-val" id="g-val" d="M30 170 A130 130 0 0 1 290 170" pathLength="100"/>
+          <g class="g-ticks" id="g-ticks"></g>
+          <text class="g-lab" x="30" y="203" text-anchor="middle">0 €</text><text class="g-lab" id="g-max" x="290" y="203" text-anchor="middle">300 €</text>
+          <g id="g-needle" class="g-needle"><rect x="157" y="62" width="6" height="112" rx="3"/><circle cx="160" cy="170" r="13"/></g>
+        </svg>
+        <p class="res-price"><span id="res-price">80</span> €</p>
+      </div>
+      <p class="res-line" id="res-line">Paris – Orly, tarif de jour.</p>
+      <ul class="res-detail" id="res-detail"></ul>
+      <a class="btn btn-big" id="res-wa" href="https://wa.me/33668244343?text=Bonjour%20Denia%2C%20je%20souhaite%20r%C3%A9server%20un%20trajet." data-wa>Réserver à ce prix sur WhatsApp</a>
+      <p class="sim-note">Tarifs TTC. En cas de forte demande ou d'événement exceptionnel, une majoration jusqu'à +50 % peut s'appliquer : Denia l'annonce avant de confirmer.</p>
+    </div>
+  </div>
+</section>
+
+<div class="ticker ticker-dark" aria-label="Ses engagements">
+  <div class="ticker-track rev">
+    <ul>
+      <li>Prix fixé avant le départ</li><li>10 minutes d'attente offertes</li><li>Gilet airbag fourni</li><li>Tenue de pluie fournie</li><li>Disponible 24 h/24, 7 j/7</li><li>Sur réservation uniquement</li><li>Tarifs TTC</li>
+    </ul>
+    <ul aria-hidden="true">
+      <li>Prix fixé avant le départ</li><li>10 minutes d'attente offertes</li><li>Gilet airbag fourni</li><li>Tenue de pluie fournie</li><li>Disponible 24 h/24, 7 j/7</li><li>Sur réservation uniquement</li><li>Tarifs TTC</li>
+    </ul>
+  </div>
+</div>
+
+<section class="tarifs" id="tarifs">
+  <div class="sec-head">
+    <h2 class="rv">La grille, sans surprise</h2>
+    <div class="seg seg-3 rv" role="radiogroup" aria-label="Créneau affiché" id="tslot">
+      <button type="button" role="radio" aria-checked="true" data-slot="0">Jour</button>
+      <button type="button" role="radio" aria-checked="false" data-slot="1">Nuit</button>
+      <button type="button" role="radio" aria-checked="false" data-slot="2">Week-end</button>
+    </div>
+  </div>
+  <div class="tgrid" id="tgrid">
+    <div class="tbars rv" id="tbars"></div>
+    <div class="tside">
+      <details class="bar rv" open>
+        <summary>Le Bourget et autres destinations</summary>
+        <div class="bar-body">
+          <p>Prise en charge plus kilométrage, pour toute distance de 10 km ou plus.</p>
+          <dl>
+            <div><dt>En semaine, de 8 h à 20 h</dt><dd>35 € + 2,5 €/km</dd></div>
+            <div><dt>Nuit et week-end</dt><dd>55 € + 2,5 €/km</dd></div>
+          </dl>
+        </div>
+      </details>
+      <details class="bar rv">
+        <summary>Mise à disposition et longues distances</summary>
+        <div class="bar-body">
+          <dl>
+            <div><dt>Mise à disposition, à l'heure</dt><dd>90 € / h</dd></div>
+            <div><dt>Longues distances</dt><dd>Sur devis</dd></div>
+          </dl>
+        </div>
+      </details>
+      <details class="bar rv">
+        <summary>Majorations</summary>
+        <div class="bar-body">
+          <dl>
+            <div><dt>Dernière minute, moins de 2 h avant</dt><dd>+20 € en semaine, +40 € le week-end</dd></div>
+            <div><dt>Horaires de week-end, du vendredi 20 h au dimanche 23 h 59</dt><dd>+20 € sur le tarif de jour, ou sur devis</dd></div>
+            <div><dt>Forte demande et événements exceptionnels</dt><dd>Jusqu'à +50 %</dd></div>
+          </dl>
+        </div>
+      </details>
+      <details class="bar rv">
+        <summary>Attente</summary>
+        <div class="bar-body">
+          <p>Jusqu'à 10 minutes, l'attente est offerte. Au-delà, elle est facturée à la minute.</p>
+          <dl>
+            <div><dt>En semaine, de 8 h à 20 h</dt><dd>1,50 € / min</dd></div>
+            <div><dt>De 20 h à 8 h</dt><dd>2 € / min</dd></div>
+            <div><dt>Week-end</dt><dd>2,50 € / min</dd></div>
+          </dl>
+        </div>
+      </details>
+      <p class="ttc rv">Tous nos tarifs sont TTC.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-label="Paris la nuit">
+  <img src="assets/avenue-des-champs-elysees-by-night-west.jpg" width="1600" height="1200" loading="lazy" alt="Les Champs-Élysées de nuit : des motos remontent l'avenue entre les files de voitures, l'Arc de Triomphe au fond">
+  <p class="band-say rv">Les voitures attendent.<br>Vous passez.</p>
+</section>
+
+<section class="balades" id="balades">
+  <div class="sec-head">
+    <h2 class="rv">Paris, côté balade</h2>
+    <p class="rv">Trois balades privées au départ de la Porte Maillot, en Honda ou en BMW. Photos souvenirs incluses.</p>
+  </div>
+  <div class="tour">
+    <div class="tour-left rv">
+      <div class="seg seg-3 seg-rose" role="radiogroup" aria-label="Formule" id="tours">
+        <button type="button" role="radio" aria-checked="false" data-tour="0">Découverte<small>1 h</small></button>
+        <button type="button" role="radio" aria-checked="true" data-tour="1">Prestige<small>1 h 30</small></button>
+        <button type="button" role="radio" aria-checked="false" data-tour="2">VIP<small>2 h</small></button>
+      </div>
+      <p class="tour-price"><span id="tour-price">150</span> €</p>
+      <p class="tour-say" id="tour-say">La plus demandée. Les plus beaux monuments, dans une ambiance élégante et confortable.</p>
+      <div class="step">
+        <span id="lab-photo">Arrêt photo en plus <small>+15 €</small></span>
+        <div class="stepper" role="group" aria-labelledby="lab-photo"><button type="button" data-step="photo" data-d="-1" aria-label="Retirer un arrêt photo">−</button><output id="n-photo">0</output><button type="button" data-step="photo" data-d="1" aria-label="Ajouter un arrêt photo">+</button></div>
+      </div>
+      <div class="step">
+        <span id="lab-min">30 minutes en plus <small>+50 €</small></span>
+        <div class="stepper" role="group" aria-labelledby="lab-min"><button type="button" data-step="min" data-d="-1" aria-label="Retirer 30 minutes">−</button><output id="n-min">0</output><button type="button" data-step="min" data-d="1" aria-label="Ajouter 30 minutes">+</button></div>
+      </div>
+      <a class="btn btn-big btn-light" id="tour-wa" href="https://wa.me/33668244343?text=Bonjour%20Denia%2C%20je%20souhaite%20r%C3%A9server%20une%20balade." data-wa>Réserver cette balade</a>
+      <p class="tour-note">Départ d'une autre adresse dans Paris : sur devis. Balade Paris by night : sur demande.</p>
+    </div>
+    <div class="tour-right rv">
+      <p class="tour-stops" id="tour-stops">3 arrêts photo</p>
+      <ol class="route" id="route"></ol>
+    </div>
+  </div>
+</section>
+
+<section class="metiers" id="pour-qui">
+  <div class="sec-head">
+    <h2 class="rv">À chaque métier, son trajet</h2>
+    <p class="rv">Presse, avocats, aviation d'affaires, dirigeants, événements. Disponible 24 h/24 et 7 j/7, sur réservation.</p>
+  </div>
+  <div class="met rv">
+    <div class="met-tabs" role="tablist" aria-label="Votre métier" id="met-tabs"></div>
+    <div class="met-panel" id="met-panel" role="tabpanel" aria-live="polite"></div>
+    <figure class="met-photo">
+      <img src="assets/la-defense-de-nuit-paris-france-2.jpg" width="1920" height="1365" loading="lazy" alt="Les tours de La Défense la nuit, avec les traînées de phares sur le boulevard circulaire">
+    </figure>
+  </div>
+</section>
+
+<section class="course" id="course">
+  <div class="course-text">
+    <h2 class="rv">Du message à la porte</h2>
+    <p class="rv">Pas d'application à installer ni de compte à créer. Un message suffit, et tout ce qui compte est écrit noir sur blanc avant le départ.</p>
+  </div>
+  <div class="slip rv">
+    <h3>Avant</h3>
+    <p class="row"><span>Votre message sur WhatsApp</span><i></i><b>trajet, date, heure</b></p>
+    <p class="row"><span>Réponse de Denia</span><i></i><b>prix fixé</b></p>
+    <p class="row"><span>Réservation sans majoration</span><i></i><b>2 h avant</b></p>
+    <h3>Le jour même</h3>
+    <p class="row"><span>Denia à l'adresse convenue</span><i></i><b>à l'heure dite</b></p>
+    <p class="row"><span>Attente offerte</span><i></i><b>10 min</b></p>
+    <p class="row"><span>Casque, gilet airbag, tenue de pluie</span><i></i><b>fournis</b></p>
+    <h3>À l'arrivée</h3>
+    <p class="row"><span>Dépose au plus près de l'entrée</span><i></i><b>terminal, palais, siège</b></p>
+    <p class="row total"><span>Prix payé</span><b>celui annoncé</b></p>
+  </div>
+</section>
+
+<section class="faq" id="questions">
+  <h2 class="rv">Les questions qu'on lui pose</h2>
+  <div class="faq-list">
+    <details class="rv" name="faq"><summary>Comment réserver ?</summary><p>Par WhatsApp au +33 6 68 24 43 43. Indiquez le trajet, la date et l'heure : Denia confirme la disponibilité et le prix. Le service fonctionne sur réservation uniquement.</p></details>
+    <details class="rv" name="faq"><summary>Le prix peut-il changer en route ?</summary><p>Non. Chaque trajet a un forfait selon le créneau : jour, nuit ou week-end. Les seuls suppléments possibles sont l'attente au-delà de 10 minutes, la réservation de dernière minute et la forte demande, tous annoncés avant le départ.</p></details>
+    <details class="rv" name="faq"><summary>Et si mon vol ou mon audience a du retard ?</summary><p>Jusqu'à 10 minutes, l'attente est offerte. Au-delà, elle est facturée 1,50 € la minute en journée, 2 € la nuit et 2,50 € le week-end.</p></details>
+    <details class="rv" name="faq"><summary>Allez-vous au Bourget et dans les terminaux privés ?</summary><p>Oui. Hors grille, le prix se calcule ainsi : 35 € de prise en charge plus 2,5 € par kilomètre en journée, 55 € plus 2,5 € par kilomètre la nuit et le week-end, à partir de 10 km.</p></details>
+    <details class="rv" name="faq"><summary>Puis-je venir avec une valise ?</summary><p>Oui. La Goldwing emporte deux valises cabine à l'arrière. Pour un bagage plus volumineux, précisez-le dans votre message.</p></details>
+    <details class="rv" name="faq"><summary>Je dois partir dans moins de deux heures</summary><p>Écrivez tout de suite. Si Denia est disponible, la course se fait avec une majoration de dernière minute : 20 € en semaine, 40 € le week-end.</p></details>
+  </div>
+</section>
+
+<section class="end" id="reserver">
+  <div class="end-card rv">
+    <div class="end-text">
+      <h2>Votre prochain trajet, à l'heure</h2>
+      <p>Disponible 24 h/24 et 7 j/7, sur réservation. Paris et Île-de-France.</p>
+      <div class="end-cta">
+        <a class="btn btn-big" href="#haut" id="end-calc">Calculer mon tarif</a>
+        <a class="btn btn-big btn-ghost" href="https://wa.me/33668244343?text=Bonjour%20Denia%2C%20je%20souhaite%20r%C3%A9server%20une%20course." data-wa>Écrire à Denia sur WhatsApp</a>
+      </div>
+      <a class="end-tel" href="tel:+33668244343">+33 6 68 24 43 43</a>
+    </div>
+    <figure class="end-photo">
+      <img src="assets/denia-visuel-large.jpg" width="1016" height="545" loading="lazy" alt="Illustration : Denia de dos, blouson à son nom, face à Paris et à la tour Eiffel au coucher du soleil">
+    </figure>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-in">
+    <p class="footer-brand">Denia Taxi Moto<span>D'une passion à un métier</span></p>
+    <ul class="footer-links">
+      <li><a href="#haut">Calculer un tarif</a></li>
+      <li><a href="#tarifs">Grille tarifaire</a></li>
+      <li><a href="#balades">Balades privées</a></li>
+      <li><a href="#pour-qui">Presse et professionnels</a></li>
+      <li><a href="mailto:deniataximoto@gmail.com">deniataximoto@gmail.com</a></li>
+      <li><a href="https://www.tiktok.com/@deniataximoto" rel="noopener">TikTok</a></li>
+    </ul>
+  </div>
+  <p class="footer-legal">Denia Taxi Moto Paris. Tous les tarifs sont TTC. Photographies de Paris : Getfunky Paris, Ros K (CC BY 2.0) et Milvus (CC BY 2.5), via Wikimedia Commons.</p>
+</footer>
+
+<a class="bubble" href="https://wa.me/33668244343?text=Bonjour%20Denia%2C%20je%20souhaite%20r%C3%A9server%20une%20course." data-wa aria-label="Écrire à Denia sur WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.800 2 6.800L3.200 29l6.600-1.700c1.900 1 4 1.500 6.200 1.500 7.200 0 13-5.700 13-12.800S23.200 3 16 3zm0 23.400c-2 0-3.900-.5-5.500-1.500l-.4-.2-3.900 1 1-3.800-.3-.4c-1.100-1.700-1.700-3.700-1.700-5.700C5.200 10 10 5.300 16 5.300S26.800 10 26.800 15.800 22 26.400 16 26.400zm5.900-7.900c-.3-.2-1.900-.9-2.200-1-.3-.1-.5-.2-.7.200-.2.300-.8 1-1 1.200-.2.200-.4.200-.7.100-.3-.2-1.400-.5-2.600-1.600-1-.9-1.600-1.900-1.800-2.200-.2-.3 0-.5.100-.7.200-.1.300-.4.500-.5.200-.2.200-.3.300-.6.100-.2.100-.4 0-.6-.1-.2-.7-1.700-1-2.300-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.100-.9.400-.3.300-1.200 1.100-1.200 2.800 0 1.600 1.200 3.200 1.400 3.400.2.200 2.400 3.600 5.800 5 .8.300 1.400.600 1.900.700.8.300 1.600.200 2.100.100.7-.1 1.900-.8 2.200-1.500.3-.800.3-1.400.2-1.500-.1-.2-.3-.200-.600-.4z"/></svg>
+</a>
+
+<script src="app.js"></script>
+</body>
+</html>
